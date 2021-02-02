@@ -1,0 +1,12 @@
+
+
+entity Category{
+	name String, 
+	tag String unique
+}
+
+entity Product{
+	name String,
+	categoryTag String,
+   	price Double
+}

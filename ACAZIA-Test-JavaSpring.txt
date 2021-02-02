@@ -1,0 +1,44 @@
+ACAZIA - TEST JAVASPRING
+Cho 2 entity:
+- Category với thuộc tính là: name (String), tag (String, unique)
+- Product với thuộc tính là: name (String), categoryTag (String), price (double)
+
+Quan hệ giữa 2 entity:
+product n-1 category
+
+Yêu cầu:
+- xây dựng hệ thống với các layer: controller, service, repository
+- viết các API CRUD cho 2 entity trên
+- viết 1 API đáp ứng yêu cầu sau: 
+nhận vào 1 String, trả về danh sách các product có thuộc tính categoryTag và categoryName sao cho categoryName gần giống với input (like %) và được sắp xếp theo: `price` giảm dần, trường hơp `price` bằng nhau thì sắp xếp theo `name` tăng dần (không phân biệt hoa thường).
+
+Ví dụ:
+category:
+[
+{"name":"may tinh", "tag":"mt"},
+{"name":"dien lanh", "tag":"dl"}
+]
+
+product:
+[
+{"name":"may tinh xach tay A", "categoryTag":"mt", "price":12.0},
+{"name":"laptop X", "categoryTag":"mt", "price":13.0},
+{"name":"pc 2", "categoryTag":"mt", "price":13.0},
+{"name":"ultrabook EZ", "categoryTag":"mt", "price":16.0},
+{"name":"tu lanh e", "categoryTag":"dl", "price":11.5},
+{"name":"dieu hoa nhiet do b", "categoryTag":"dl", "price":12.0}
+]
+
+
+input:
+tinh
+
+output:
+[
+{"name":"ultrabook EZ", "categoryTag":"mt", "categoryName":"may tinh", "price":16.0},
+{"name":"laptop X", "categoryTag":"mt", "categoryName":"may tinh", "price":13.0},
+{"name":"pc 2", "categoryTag":"mt", "categoryName":"may tinh", "price":13.0},
+{"name":"may tinh xach tay A", "categoryTag":"mt", "categoryName":"may tinh", "price":12.0}
+]
+
+
